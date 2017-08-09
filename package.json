@@ -1,7 +1,7 @@
 {
   "name": "express-response-size",
   "description": "Response size for Node.js servers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Collin Bourdage<collin.bourdage@gmail.com>",
   "contributors": [],
   "license": "MIT",
