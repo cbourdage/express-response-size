@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "eslint-config-neighborhoods"
+  ],
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "func-names": 0,
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": ["tests/*.js"]
+    }],
+    "no-use-before-define": 0,
+    "prefer-arrow-callback": 0
+  }
+}

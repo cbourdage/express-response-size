@@ -1,15 +1,13 @@
-process.env.NO_DEPRECATION = 'express-response-size';
-
-var after = require('after');
-var assert = require('assert');
-var http = require('http');
-var request = require('supertest');
-var responseSize = require('..');
+const after = require('after');
+const assert = require('assert');
+const http = require('http');
+const request = require('supertest');
+const responseSize = require('..');
 
 describe('responseSize(fn)', function() {
   it('should call fn with response size', function(done) {
-    var cb = after(2, done);
-    var server = createServer(function(req, res, size) {
+    const cb = after(2, done);
+    const server = createServer(function(req, res, size) {
       assert.equal(req.url, '/');
       assert.equal(res.statusCode, 200);
       assert.ok(size >= 0);
@@ -22,8 +20,8 @@ describe('responseSize(fn)', function() {
   });
 
   it('should call fn from number option with response size', function(done) {
-    var cb = after(2, done);
-    var server = createServer(2, function(req, res) {
+    const cb = after(2, done);
+    const server = createServer(2, function(req, res) {
       assert.equal(req.url, '/');
       assert.equal(res.statusCode, 200);
       cb();
@@ -36,14 +34,14 @@ describe('responseSize(fn)', function() {
 });
 
 function createServer(opts, fn) {
-  var _rs = responseSize(opts);
+  const rSize = responseSize(opts);
   return http.createServer(function(req, res) {
-    _rs(req, res, function(err) {
-      setTimeout(function () {
+    rSize(req, res, function(err) {
+      setTimeout(function() {
         fn && fn(req, res);
-        res.statusCode = err ? (err.status || 500) : 200;
+        res.statusCode = err ? (err.status || 500) : 200; // eslint-disable-line no-param-reassign
         res.end(err ? err.message : 'OK');
       }, 10);
-    })
+    });
   });
 }
