@@ -18,7 +18,9 @@ function responseSize(options) {
 
   return function(req, res, next) {
     res.on('finish', function() {
-      fn(req, res, res._contentLength, options);  // eslint-disable-line no-underscore-dangle
+      // if we have the expressjs/compression middleware installed, _contentLength
+      // does not get set so we need to check our headers
+      fn(req, res, res.getHeader('Content-Length') || res._contentLength);  // eslint-disable-line no-underscore-dangle
     });
 
     next();
