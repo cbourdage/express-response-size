@@ -1,0 +1,34 @@
+{
+  "name": "express-response-size",
+  "description": "Response size for Node.js servers",
+  "version": "0.0.1",
+  "author": "Collin Bourdage<collin.bourdage@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "keywords": [
+    "http",
+    "response size",
+    "express server"
+  ],
+  "repository": "cbourdage/express-response-size",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "after": "0.8.2",
+    "eslint": "3.12.2",
+    "eslint-config-neighborhoods": "1.2.7",
+    "istanbul": "0.4.5",
+    "mocha": "2.5.3",
+    "supertest": "1.1.0"
+  },
+  "files": [
+    "LICENSE",
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint --plugin markdown --ext js,md .",
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
+  }
+}
