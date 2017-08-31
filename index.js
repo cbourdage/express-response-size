@@ -3,6 +3,8 @@
  * Copyright(c) 2017 Collin Bourdage
  * MIT Licensed
  */
+const onHeaders = require('on-headers');
+
 /**
  * Middleware to expose the response size in a clean way
  * to interface with/check or do whatever you want with...
@@ -17,7 +19,7 @@ function responseSize(options) {
     : options;
 
   return function(req, res, next) {
-    res.on('finish', function() {
+    onHeaders(res, function() {
       // if we have the expressjs/compression middleware installed, _contentLength
       // does not get set so we need to check our headers
       fn(req, res, res.getHeader('Content-Length') || res._contentLength);  // eslint-disable-line no-underscore-dangle

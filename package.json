@@ -1,7 +1,7 @@
 {
   "name": "express-response-size",
   "description": "Response size for Node.js servers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Collin Bourdage<collin.bourdage@gmail.com>",
   "contributors": [],
   "license": "MIT",
@@ -12,6 +12,7 @@
   ],
   "repository": "cbourdage/express-response-size",
   "dependencies": {
+    "on-headers": "1.0.1"
   },
   "devDependencies": {
     "after": "0.8.2",
